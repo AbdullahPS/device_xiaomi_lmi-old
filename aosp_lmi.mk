@@ -3,8 +3,10 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 #
-
-# Inherit from umi device
+# Inherit from those products. Most specific first.
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+# Inherit from lmi device
 $(call inherit-product, device/xiaomi/lmi/device.mk)
 
 # Inherit some common PixelExperience stuff.
@@ -24,11 +26,12 @@ PRODUCT_MODEL := POCO F2 PRO
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRIVATE_BUILD_DISC="coral-user 11 RP1A.201205.008 6943376 release-keys" \
+    PRIVATE_BUILD_DISC="lmi-user 11 RKQ1.200826.002 V12.2.1.0.RJKMIXM release-keys" \
     PRODUCT_DEVICE=lmi \
     PRODUCT_NAME=lmi
 
-BUILD_FINGERPRINT := google/coral/coral:11/RP1A.201205.008/6943376:user/release-keys
+BUILD_FINGERPRINT := POCO/lmi_global/lmi:11/RKQ1.200826.002/V12.2.1.0.RJKMIXM:user/release-keys
+
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.build.fingerprint=$(BUILD_FINGERPRINT)
