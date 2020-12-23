@@ -17,5 +17,9 @@ PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
 
+TARGET_GAPPS_ARCH := arm64
+$(call inherit-product, vendor/gapps/gapps.mk)
+
+
 
 
